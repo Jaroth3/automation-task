@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.musala.masters</groupId>
+  <artifactId>automation-task</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+ 
+ 	<properties>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    	<maven.compiler.source>7.0</maven.compiler.source>
+ 	</properties>
+
+    
+ 	<dependencies>
+ 	
+ 	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+    		<groupId>org.seleniumhq.selenium</groupId>
+    		<artifactId>selenium-java</artifactId>
+    		<version>3.14.0</version>
+		</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/junit/junit -->
+  		<dependency>
+    		<groupId>junit</groupId>
+    		<artifactId>junit</artifactId>
+    		<version>4.12</version>
+    		<scope>test</scope>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-report-plugin -->
+		<dependency>
+    		<groupId>org.apache.maven.plugins</groupId>
+    		<artifactId>maven-surefire-report-plugin</artifactId>
+    		<version>2.18.1</version>
+		</dependency>
+				
+	</dependencies>
+	
+	<build>
+    	<plugins>
+    		<plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+        		<artifactId>maven-surefire-report-plugin</artifactId>
+        		<version>3.0.0-M3</version>
+        		<configuration>
+          			<outputDirectory>D:\Projects\Reports\</outputDirectory>
+        		</configuration>
+      		</plugin>
+      		<plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+        		<artifactId>maven-surefire-plugin</artifactId>
+        		<version>3.0.0-M3</version>
+        		<configuration>
+        			<forkCount>10</forkCount>
+        			<reuseForks>false</reuseForks>
+        			<paralel>methods</paralel>
+        			<threadCount>5</threadCount>
+          			<includes>
+            			<include>**/*Tests.java</include>
+          			</includes>
+        		</configuration>
+      		</plugin>
+    	</plugins>
+ 	</build>
+
+</project>
